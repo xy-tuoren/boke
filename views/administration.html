@@ -1,0 +1,89 @@
+{{extend './commen/layout.html'}}
+{{block 'link'}}
+<link rel="stylesheet" type="text/css" href="/css/administration.css"/>
+{{/block}}
+{{block 'main'}}
+{{include './commen/navigation.html'}}
+	{{if userInfo}}
+      {{if userInfo.role==='admin'}}
+        <div class="article-all">
+    <!-- 分页 -->
+    <ul class="pagination">
+        {{if article.page>1}}
+        <li class="left" onclick="change({{article.page-1}})">
+            &laquo;
+        </li>
+        {{/if}}
+        {{each article.display}}
+        <li class="center {{if $value==1}}bg{{/if}}" flag="{{$value}}" onclick="change({{$value}})" flag="{{$value}}">{{$value}}</li>
+        {{/each}}
+        {{if article.page<article.pages}}
+        <li class="right" onclick="change({{article.page-0+1}})">
+            &raquo;
+        </li>
+        {{/if}}
+    </ul>
+    <!-- /分页 -->
+    <div class="select"><span class="select-selected">所有文章</span><span class="select-noselected" onclick="add()">写文章</span></div>
+    <div class="screen">
+        <span>分类</span>
+        <select onchange="cha()">
+            <option selected="selected">全部</option>
+            {{each ctg}}
+            <option>{{$value}}</option>
+            {{/each}}
+        </select>
+        <span>共{{article.total}}篇</span>
+    </div>
+    <table >
+        <tr><td>标题</td><td>简介</td><td>作者</td><td>封面</td><td>分类</td><td>标签</td><td>发表时间</td><td>操作</td></tr>
+        {{each article.records}}
+        <tr><td><input class="title" type="text" value="{{$value.title}}" disabled="disabled"></td>
+            <td><input class="brief" type="text" value="{{$value.brief}}" disabled="disabled"></td>
+            <td><input class="username" type="text" value="{{$value.author.username}}" disabled="disabled"></td>
+            <td><input class="cover" type="text" value="{{$value.cover}}" disabled="disabled"></td>
+            <td><input class="category" type="text" value="{{$value.category}}" disabled="disabled"></td>
+            <td><input class="label" type="text" value="{{each $value.label}}{{if $index>0}}、{{/if}}{{$value}}{{/each}}" disabled="disabled"></td>
+            <td><input class="date" type="text" value="{{dateFormat($value.publishDate,'yyyy-mm-dd HH:MM:ss')}}" disabled="disabled"></td>
+            <td><span class="edit" onclick="edit({{$index}})">编辑</span><span onclick="del({{$index}})" class="del" _id="{{@$value._id}}">删除</span></td></tr>
+        {{/each}}
+    </table>
+</div>
+         <div class="article-add">
+    <form action="/administrationAdd" method="post" enctype="multipart/form-data">
+        <div class="one">
+            <div class="select"><span class="select-selected">写文章</span><span class="select-noselected">所有文章</span></div>
+            <i>标题</i>
+            <input type="text" class="inp-one" value="" name="title" placeholder="文章标题"/>
+            <i>简介</i>
+            <input type="text" class="inp-two" name="brief" placeholder="文章简介" maxlength="30"/>
+            <i>内容</i>
+            <textarea name="content" placeholder="请输入内容"></textarea>
+            <input hidden="" value=""/>
+        </div>
+        <div class="two">
+            <i>文章封面</i>
+            <input class="inp-one" id="file" type="file" name="cover" placeholder="未选择任何文件"/>
+            <i>所属分类</i>
+            <input type="text" name="category" placeholder="请输入类别">
+            <i>文章标签</i>
+            <input name="label" class="inp-two" type="text" value="" placeholder="可写多个请用' , '分隔"/>
+            <i>发布时间</i>
+            <input name="publishDate" class="inp-there" type="datetime-local" style="font-size: 14px;color: black;word-spacing:-10px;text-indent: 1px"/>
+            <input class="inp-sub" type="submit" value="提交"/>
+        </div>
+    </form>
+</div>
+	  {{else}}
+	      <h1>只有管理员才可以管理噢</h1>
+	  {{/if}}
+      {{else}}
+          <h1>请先登录</h1>
+	{{/if}}
+{{/block}}
+{{block 'script'}}
+<script type="text/javascript" src="/js/administration.js"></script>
+<script type="text/javascript">
+
+</script>
+{{/block}}

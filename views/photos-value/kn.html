@@ -1,0 +1,127 @@
+<style type="text/css">
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+    }
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bg-box-1 {
+        background: url('/image/kn/1.jpg') no-repeat center/cover;
+    }
+
+    .bg-box-2 {
+        background: url('/image/kn/2.jpg') no-repeat center/cover;
+    }
+
+    .bg-box-3 {
+        background: url('/image/kn/3.jpg') no-repeat center/cover;
+    }
+
+    .bg-box-4 {
+        background: url('/image/kn/4.jpg') no-repeat center/cover;
+    }
+
+    #wrap {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 1000px;
+        height: 400px;
+    }
+
+    #wrap>ul {
+        width: 120%;
+        list-style: none;
+    }
+
+    #wrap>ul>li {
+        float: left;
+        width: 100px;
+        height: 400px;
+        cursor: pointer;
+    }
+
+    #wrap>ul>li:nth-child(1) {
+        background: url('/image/kn/1.jpg') no-repeat center/cover;
+    }
+
+    #wrap>ul>li:nth-child(2) {
+        background: url('/image/kn/2.jpg') no-repeat center/cover;
+    }
+
+    #wrap>ul>li:nth-child(3) {
+        background: url('/image/kn/3.jpg') no-repeat center/cover;
+    }
+
+    #wrap>ul>li:nth-child(4) {
+        background: url('/image/kn/4.jpg') no-repeat center/cover;
+        width: 700px;
+    }
+
+    #wrap>ul>li>.text {
+        margin-top: -100%;
+        width: 100px;
+        height: 125%;
+        background: #000;
+        opacity: 0.5;
+    }
+
+    #wrap>ul>li>.text p {
+        padding: 120px 40px;
+        font-family: 'Microsoft yahei';
+        color: #fff;
+    }
+    .out {
+        cursor: pointer;
+        position: absolute;
+        z-index: 999;
+        left: 50px;
+        top: 30px;
+        font-size: 24px;
+        color: #333333;
+        font-family: 'Microsoft yahei';
+        font-weight: bold;
+    }
+
+</style>
+<div class="bg bg-box-1"></div>
+<div class="bg bg-box-2"></div>
+<div class="bg bg-box-3"></div>
+<div class="bg bg-box-4"></div>
+<p class="out" onclick="out()">返回相册</p>
+<div id="wrap">
+    <ul>
+        <li>
+            <div class="text">
+                <p>康娜1</p>
+            </div>
+        </li>
+        <li>
+            <div class="text">
+                <p>康娜2</p>
+            </div>
+        </li>
+        <li>
+            <div class="text">
+                <p>康娜3</p>
+            </div>
+        </li>
+        <li class="curr">
+            <div class="text">
+                <p>康娜4</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<script src="/js/photos-value.js"></script>

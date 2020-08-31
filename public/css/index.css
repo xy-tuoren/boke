@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('/fonts/icomoon.eot?7kkyc2');
+    src:  url('/fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?7kkyc2') format('truetype'),
+    url('/fonts/icomoon.woff?7kkyc2') format('woff'),
+    url('/fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+    background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+    background: url("/image/bg1.jpg");
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+    }
+    100% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+    }
+}
+.stars {
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0;
+    perspective-origin: 50% 100%;
+    left: 50%;
+    animation: rotate 90s infinite linear;
+}
+
+.star {
+    width: 2px;
+    height: 2px;
+    background: #F7F7B6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0 -300px;
+    transform: translate3d(0, 0, -300px);
+    backface-visibility: hidden;
+}
+.name{
+    width: 280px;
+    margin: 20px auto 30px auto;
+    display: block;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(0,0,0,0.2);
+    text-indent: 0.5em;
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    margin: 0 auto;
+    display: block;
+}
+.table {
+    height: 20px;
+    width: 420px;
+    margin: 400px auto;
+}
+.table i {
+    font-family: "icomoon";
+    text-align: center;
+    font-style:normal;
+    display: inline-block;
+    padding-left: 10px;
+    color: #1b6d85 ;
+    font-size: 18px;
+}
+.table i:hover {
+    transform: scale(1.1,1.1);
+    transition: all 0.5s;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    color: #23527c;
+}
+.table i:hover a {
+    text-decoration: underline;
+}
+.table .login::before {
+    content: "\e971";
+    padding-right: 5px;
+    font-size: 18px;
+}
+.table .article::before {
+    padding-right: 5px;
+    content: "\e922";
+    font-size: 16px;
+}
+.table .message::before {
+    padding-right: 5px;
+    content: "\e906";
+    font-size: 16px;
+}
+.table .video::before {
+    padding-right: 5px;
+    content: "\e901";
+    font-size: 18px;
+}
+.table .photos::before {
+    content: "\e90d";
+    padding-right: 5px;
+    font-size: 16px;
+}
+a {
+    display: inline-block;
+    cursor: pointer;
+    color: #1b6d85 ;
+    font-size: 18px;
+    position: relative;
+}
+a::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: white;
+    filter: blur(70px);
+}

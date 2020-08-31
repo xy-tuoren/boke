@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css"/>
+	<script src="/js/lib/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<div class="stars"></div>  <!--背景层-->
+	<div class="table">
+		<i class="login"><a href="/login">登录</a></i>
+		<i class="article"><a href="/article">文章</a></i>
+		<i class="message"><a href="/leavemessage">留言版</a></i>
+		<i class="video"><a href="/administration">管理文章</a></i>
+		<i class="photos"><a href="/photos">相册</a></i>
+	</div>
+<script>
+$(document).ready(function(){
+  var stars=1000;  /*星星的密集程度，数字越大越多*/
+  var $stars=$(".stars");
+  var r=800;   /*星星的看起来的距离,值越大越远,可自行调制到自己满意的样子*/
+  for(var i=0;i<stars;i++){
+    var $star=$("<div/>").addClass("star");
+    $stars.append($star);
+  }
+  $(".star").each(function(){
+    var cur=$(this);
+    var s=0.2+(Math.random()*1);
+    var curR=r+(Math.random()*300);
+    cur.css({ 
+      transformOrigin:"0 0 "+curR+"px",
+      transform:" translate3d(0,0,-"+curR+"px) rotateY("+(Math.random()*360)+"deg) rotateX("+(Math.random()*-50)+"deg) scale("+s+","+s+")"
+       
+    })
+  })
+})
+</script>
+<script>
+	$(function () {
+
+	})
+</script>
+
+</body>
+</html>

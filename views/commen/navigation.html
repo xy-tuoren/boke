@@ -1,0 +1,19 @@
+<nav>
+	<div id="nav-left">
+	</div>
+	<ul id="nav-right">
+		<li class="li-home"><a href="/index">首页</a></li>
+		<li class="li-medium"><a href="/administration">管理文章</a></li>
+		<li class="li-photos"><a href="/photos">相册</a></li>
+		<li class="li-psnifm"><a href="/personal">个人信息</a></li>
+		<li class="li-leavemessage"><a href="/leavemessage">留言板</a></li>
+		<li class="li-article"><a href="/article">文章列表</a></li>
+		{{if userInfo}}
+				<li><a href="/personal"><img src="{{userInfo.portrait}}" id="img">{{userInfo.username}}</a></li>
+			{{else}}
+				<li class="li-login"><a href="/login">登录/注册</a></li>
+		{{/if}}
+	</ul>
+</nav>
+<div id="bg">
+</div>

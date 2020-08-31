@@ -1,0 +1,41 @@
+<!-- 分页 -->
+<ul class="pagination">
+    {{if article.page>1}}
+    <li class="left" onclick="change({{article.page-1}})">
+        &laquo;
+    </li>
+    {{/if}}
+    {{each article.display}}
+    <li class="center" flag="{{$value}}" onclick="change({{$value}})" flag="{{$value}}">{{$value}}</li>
+    {{/each}}
+    {{if article.page<article.pages}}
+    <li class="right" onclick="change({{article.page-0+1}})">
+        &raquo;
+    </li>
+    {{/if}}
+</ul>
+<!-- /分页 -->
+<div class="select"><span class="select-selected">所有文章</span><span class="select-noselected" onclick="add()">写文章</span></div>
+<div class="screen">
+    <span>分类</span>
+    <select onchange="cha()">
+        <option {{category=="全部"?"selected=selected":""}}>全部</option>
+        {{each ctg}}
+        <option {{category==$value?"selected=selected":""}}>{{$value}}</option>
+        {{/each}}
+    </select>
+    <span>共{{article.total}}篇</span>
+</div>
+<table >
+    <tr><td>标题</td><td>简介</td><td>作者</td><td>封面</td><td>分类</td><td>标签</td><td>发表时间</td><td>操作</td></tr>
+    {{each article.records}}
+    <tr><td><input class="title" type="text" value="{{$value.title}}" disabled="disabled"></td>
+        <td><input class="brief" type="text" value="{{$value.brief}}" disabled="disabled"></td>
+        <td><input class="username" type="text" value="{{$value.author.username}}" disabled="disabled"></td>
+        <td><input class="cover" type="text" value="{{$value.cover}}" disabled="disabled"></td>
+        <td><input class="category" type="text" value="{{$value.category}}" disabled="disabled"></td>
+        <td><input class="label" type="text" value="{{each $value.label}}{{if $index>0}}、{{/if}}{{$value}}{{/each}}" disabled="disabled"></td>
+        <td><input class="date" type="text" value="{{dateFormat($value.publishDate,'yyyy-mm-dd HH:MM:ss')}}" disabled="disabled"></td>
+        <td><span class="edit" onclick="edit({{$index}})">编辑</span><span onclick="del({{$index}})" class="del" _id="{{@$value._id}}">删除</span></td></tr>
+    {{/each}}
+</table>

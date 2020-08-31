@@ -1,0 +1,23 @@
+{{each leavemessage.records}}
+<div class="content">
+    <img src="{{$value.uid.portrait}}" ><i class="name">{{$value.uid.username}}</i><span>{{dateFormat($value.time,'yyyy-mm-dd HH:MM:ss')}}</span><span>{{total>0 ? total-- : 0}}楼</span>
+    <p><i>{{$value.content}}</i>{{if userInfo}}{{if userInfo.role==='admin'}}<button class="del" onclick="del({{$value._id}})">删除</button>{{/if}}{{/if}}</p>
+</div>
+{{/each}}
+<!-- 分页 -->
+<ul class="pagination">
+    {{if leavemessage.page>1}}
+    <li class="left" onclick="change({{leavemessage.page-1}})">
+        &laquo;
+    </li>
+    {{/if}}
+    {{each leavemessage.display}}
+    <li class="center" flag="{{$value}}" onclick="change({{$value}})">{{$value}}</li>
+    {{/each}}
+    {{if leavemessage.page<leavemessage.pages}}
+    <li class="right" onclick="change({{leavemessage.page-0+1}})">
+        &raquo;
+    </li>
+    {{/if}}
+</ul>
+<!-- /分页 -->

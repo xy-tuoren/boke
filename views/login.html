@@ -1,0 +1,59 @@
+{{extend './commen/layout.html'}}
+{{block 'link'}}
+     <link rel="stylesheet" type="text/css" href="/css/login.css"/>
+{{/block}}
+{{block 'main'}}
+	{{include './commen/navigation.html'}}
+			<div class="mainbody middle">
+				<form class="form-box front" id="form-login" method="post">
+					<div>
+						<h2>登录</h2>
+					</div>
+					<div>
+						<input class="input-login" name="email" type="text" placeholder="邮箱" />
+						<input class="input-login" name="password" type="password" placeholder="密码" />
+						<button class="btn-submit" type="submit" >
+							登录
+						</button>
+					</div>
+					<div>
+						<p style="margin-top: 40px">没有账户点击</p>
+						<p><a id="signin">注册</a></p>
+					</div>
+				</form>
+				<form class="form-box back" id="form-register" method="post" action="/register">
+					<div>
+						<h2>注册</h2>
+					</div>
+					<div>
+						<input class="input-register" type="text" name="username" placeholder="用户名" />
+						<input class="input-register" type="email" name="email" placeholder="请输入邮箱">
+						<input class="input-register" type="password" name="password" placeholder="密码" />
+						<input type="hidden" name="role" value="normal">
+						<input class="input-register" type="password" placeholder="再次输入密码">
+						<button class="btn-submit" type="submit" >
+							注册
+						</button>
+					</div>
+					<div>
+						<p style="margin-top: 10px">已有账户点击</p>
+						<p><a id="login">登录</a></p>
+					</div>
+				</form>
+			</div>
+{{/block}}
+{{block 'script'}}
+    <script src="/js/register-verification.js"></script>
+    <script src="/js/login-verification.js"></script>
+	<script type="text/javascript">
+		// 点击sigup触发翻转样式
+		$("#signin").click(function() {
+			$(".middle").toggleClass("middle-flip");
+		});
+		// 点击login触发翻转样式
+		$("#login").click(function() {
+			$(".middle").toggleClass("middle-flip");
+		});
+	</script>
+{{/block}}
+

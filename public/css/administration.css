@@ -1,0 +1,201 @@
+.article-all {
+    height: 60%;
+    width: 80%;
+    margin: 80px auto;
+    color: #333333;
+    position: relative;
+    outline: none;
+}
+.select {
+    margin: 10px 0px;
+}
+.select span {
+    cursor: pointer;
+    margin-right: 10px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.select-selected {
+    font-size: 18px;
+}
+.select-noselected {
+    background-color: cadetblue;
+    color: white;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.screen span {
+    font-size: 14px;
+    font-weight: 600;
+}
+.screen select {
+    margin-top: 3px;
+    height: 18px;
+    vertical-align: top;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    font-size: 12px;
+}
+table,tr,td{
+    border: 1px solid #CCCCCC;
+    width: 100%;
+    margin: 10px auto;
+    border-collapse:collapse;
+}
+table tr:first-child td {
+    text-align: center;
+    text-indent: 0px;
+    font-size: 14px;
+}
+table tr td {
+    padding: 5px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+table tr:nth-child(2n){
+    background-color: #F0F0F0;
+}
+table tr:nth-child(2n+1){
+    background-color: whitesmoke;
+}
+table tr td:nth-child(1){
+    width: 15%;
+    text-indent: 10px;
+}
+table tr td:nth-child(2){
+    width: 25%;
+    text-indent: 10px;
+}
+table tr td:nth-child(3){
+    width: 5%;
+}
+table tr td:nth-child(4){
+    width: 10%;
+}
+table tr td:nth-child(5){
+    width: 10%;
+}
+table tr td:nth-child(6){
+    width: 15%;
+}
+table tr td:nth-child(7){
+    width: 10%;
+    text-align: center;
+}
+table tr td:nth-child(8){
+    width: 10%;
+    font-size: 14px;
+    text-align: center;
+}
+table tr td:nth-child(8) span:first-child{
+    cursor: pointer;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 12px;
+    margin-right: 8px;
+}
+table tr td:nth-child(8) span:last-child{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 2px;
+}
+
+
+
+.article-add {
+    height: 60%;
+    width: 80%;
+    margin: 80px auto;
+    color: #333333;
+    font-size: 12px;
+    display: none;
+}
+.article-add .one {
+    width: 65%;
+    float: left;
+}
+.article-add .two {
+    margin-top: 40px;
+    width: 32%;
+    float: right;
+}
+.article-add .one input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    margin: 5px 0px 10px;
+}
+.article-add .one .inp-one {
+    height: 30px;
+    text-indent: 10px;
+}
+.article-add .one .inp-two {
+    height: 30px;
+    text-indent: 10px;
+}
+.article-add .one textarea {
+    outline: none;
+    width: 100%;
+    height: 150px;
+    text-indent: 10px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    margin: 5px 0px 10px;
+    padding-top: 10px;
+    font-size: 16px;
+}
+.article-add .two input,.article-add .two select {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    margin: 5px 0px 10px;
+    height: 30px;
+    text-indent: 10px;
+}
+.article-add .two .inp-one {
+    padding: 2px 0px;
+    padding-left: 5px;
+    height: 30px;
+    text-indent: 0px;
+    box-sizing: border-box;
+}
+.article-add .two .inp-sub {
+    width: 50px;
+    text-align: center;
+    text-indent: 0px;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+}
+.pagination {
+    height: 70px;
+    width: 50%;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    box-sizing: border-box;
+    text-align: right;
+}
+.pagination li {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: rgba(233,233,233,.5);
+    border-radius: 5px;
+}
+.article-all input {
+    outline: none;
+    border: none;
+    background-color: rgba(255,255,255,.1);
+}

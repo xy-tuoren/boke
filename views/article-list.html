@@ -1,0 +1,47 @@
+<div class="head">
+    <span class="span-one">文章列表</span>
+    <span class="span-two">共{{article.total}}篇</span>
+</div>
+{{each article.records}}
+<div class="article-list" onclick="list({{$value._id}})">
+    <img class="img-left" src="{{$value.cover}}" alt="封面" />
+    <div class="title">
+        <p>{{$value.title}}</p>
+        <p>{{$value.brief}}</p>
+        <div class="end">
+							<span class="photo">
+								<img src="/uploads/3.jpg" alt="头像" >
+								<i>{{$value.author.username}}</i>
+							</span>
+            <span class="date">{{dateFormat($value.publishDate,'yyyy-mm-dd')}}</span>
+            <span class="Statistics">
+								<i class="call" flag="{{@$value._id}}"></i>
+								<i>{{comt[$index]}}</i>
+								<i class="browse" flag="{{@$value._id}}"></i>
+							</span>
+        </div>
+        <div class="lable">
+            {{each $value.label}}
+            <i>{{if $index>0}}、{{/if}}{{$value}}</i>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/each}}
+<!-- 分页 -->
+<ul class="pagination">
+    {{if article.page>1}}
+    <li class="left" onclick="change({{article.page-1}})">
+        &laquo;
+    </li>
+    {{/if}}
+    {{each article.display}}
+    <li class="center" flag="{{$value}}" onclick="change({{$value}})" flag="{{$value}}">{{$value}}</li>
+    {{/each}}
+    {{if article.page<article.pages}}
+    <li class="right" onclick="change({{article.page-0+1}})">
+        &raquo;
+    </li>
+    {{/if}}
+</ul>
+<!-- /分页 -->

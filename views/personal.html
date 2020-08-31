@@ -1,0 +1,38 @@
+{{extend './commen/layout.html'}}
+{{block 'link'}}
+<link rel="stylesheet" type="text/css" href="/css/personal.css"/>
+{{/block}}
+{{block 'main'}}
+{{include './commen/navigation.html'}}
+    {{if userInfo}}
+        <div class="body">
+            <form action="/personalupdate" method="post" enctype="multipart/form-data">
+                <div class="portrait-div">
+                    <p class="none">点击修改头像</p>
+                    <img src="{{user.portrait}}" class="portrait">
+                </div>
+                <label>昵称:</label>
+                <input type="text" name="username" class="user" value="{{user.username}}" disabled="disabled"/><br />
+                <label>邮箱:</label>
+                <input type="email" name="email" class="email" value="{{user.email}}" disabled="disabled"/><br />
+                <label class="none flag">密码:</label>
+                <input type="text" name="password" class="password none flag" value="" disabled="disabled"/><br class="none flag"/>
+                <!--multiple属性设置让用户选择多个文件-->
+                <input type="file" name="portrait" id="file" hidden>
+                <input type="text" name="_id" value="{{@user._id}}" hidden>
+                <label>身份:</label>
+                <input class="role" type="text" value="{{user.role == 'admin' ? '管理员用户' : '普通用户'}}" disabled="disabled">
+                <p class="end"><span>编辑信息</span><button class="none flag" type="submit">提交</button></p>
+                <p class="loginout">退出登录</p>
+            </form>
+        </div>
+        {{else}}
+            <h1>没有检测到登录信息!</h1>
+    {{/if}}
+{{/block}}
+{{block 'script'}}
+<script type="text/javascript" src="/js/personal.js"></script>
+<script type="text/javascript">
+
+</script>
+{{/block}}

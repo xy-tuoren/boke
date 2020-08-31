@@ -1,0 +1,24 @@
+{{each comment.records}}
+<div class="value">
+    <p><span>{{$value.uid.username}}</span><span>{{total--}}楼</span></p>
+    <p>{{dateFormat($value.time,'yyyy-mm-dd HH:MM:ss')}}</p>
+    <p><span>{{$value.content}}</span>{{if userInfo}}{{if userInfo.role==='admin'}}<span onclick="del({{$value._id}})">删除</span>{{/if}}{{/if}}</p>
+</div>
+{{/each}}
+<!-- 分页 -->
+<ul class="pagination">
+    {{if comment.page>1}}
+    <li class="left" onclick="change({{comment.page-1}},{{article._id}})">
+        &laquo;
+    </li>
+    {{/if}}
+    {{each comment.display}}
+    <li class="center {{if $value==1}}bg{{/if}}" flag="{{$value}}" onclick="change({{$value}},{{article._id}})">{{$value}}</li>
+    {{/each}}
+    {{if comment.page<comment.pages}}
+    <li class="right" onclick="change({{comment.page-0+1}},{{article._id}})">
+        &raquo;
+    </li>
+    {{/if}}
+</ul>
+<!-- /分页 -->
